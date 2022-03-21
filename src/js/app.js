@@ -8,12 +8,11 @@ import Task from "./Task";
 function App(props) {
     const [taskData, setTaskData] = useState([])
     const [updateData, setUpdateData] = useState(false)
-
+    console.log(taskData)
     useEffect(()=>{
         getTasks((data)=>{
             setTaskData(data)
         }).then(()=>{
-            console.log(taskData)
             setUpdateData(false)
         })
     }, [updateData])

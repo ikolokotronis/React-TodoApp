@@ -56,19 +56,21 @@ export const removeTask = async (id) => {
     }
 }
 
-// export const finishTask = async (id) => {
-//     try {
-//         const response = await fetch(`${API_URL}/tasks/${id}`, {
-//             method: "PUT",
-//             headers: {
-//                 Authorization: API_KEY,
-//                 'Content-Type': 'application/json'
-//             },
-//             body: JSON.stringify({
-//                 status: "closed"
-//             })
-//         })
-//     } catch (err) {
-//         console.log(err)
-//     }
-// }
+export const finishTask = async (id, title, description) => {
+    try {
+        const response = await fetch(`${API_URL}/tasks/${id}`, {
+            method: "PUT",
+            headers: {
+                Authorization: API_KEY,
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                title: title,
+                description: description,
+                status: "closed"
+            })
+        })
+    } catch (err) {
+        console.log(err)
+    }
+}

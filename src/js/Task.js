@@ -1,8 +1,9 @@
 import React, {useEffect, useState} from 'react';
 import {removeTask} from "./api/tasks";
+import {finishTask} from "./api/tasks";
 
 function Task(props) {
-    const [status, setStatus] = useState()
+    const [status, setStatus] = useState('')
     const [showOperationForm, setShowOperationForm] = useState(false)
 
     useEffect(()=>{
@@ -20,7 +21,10 @@ function Task(props) {
     }
 
     function handleFinish() {
-        console.log('finish clicked')
+        setStatus("closed")
+        finishTask(props.id,props.title,props.description).then(()=>{
+            props.onFinishTask()
+        })
     }
 
     return (
