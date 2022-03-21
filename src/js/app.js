@@ -13,13 +13,18 @@ function App(props) {
         getTasks((data)=>{
             setTaskData(data)
         })
-        console.log(taskData)
     }, [updateData])
-
+    console.log(taskData)
     return (
         <>
             <NewTask onNewTask={()=>setUpdateData(state=>state+1)}/>
-            <Task/>
+            {
+                taskData.map(task=>{
+                    return <Task key={task.id} title={task.title}
+                                 description={task.description}
+                                 status={task.status} onRemoveTask={null}/>
+                })
+            }
         </>
     );
 }
