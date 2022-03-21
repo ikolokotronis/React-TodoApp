@@ -23,3 +23,22 @@ export const getTasks = async (successCallback) => {
         console.log(err);
     }
 };
+
+export const addTask = async (title, description, status) => {
+    try {
+        const response = await fetch(`${API_URL}/tasks`, {
+            method: "POST",
+            headers: {
+                Authorization: API_KEY,
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                title: title,
+                description: description,
+                status: status
+            })
+        })
+    } catch (err) {
+        console.log(err)
+    }
+}
