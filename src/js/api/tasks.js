@@ -42,3 +42,33 @@ export const addTask = async (title, description, status) => {
         console.log(err)
     }
 }
+
+export const removeTask = async (id) => {
+    try {
+        const response = await fetch(`${API_URL}/tasks/${id}`, {
+            method: "DELETE",
+            headers: {
+                Authorization: API_KEY,
+            }
+        })
+    } catch (err) {
+        console.log(err)
+    }
+}
+
+// export const finishTask = async (id) => {
+//     try {
+//         const response = await fetch(`${API_URL}/tasks/${id}`, {
+//             method: "PUT",
+//             headers: {
+//                 Authorization: API_KEY,
+//                 'Content-Type': 'application/json'
+//             },
+//             body: JSON.stringify({
+//                 status: "closed"
+//             })
+//         })
+//     } catch (err) {
+//         console.log(err)
+//     }
+// }

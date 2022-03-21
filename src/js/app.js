@@ -7,22 +7,25 @@ import Task from "./Task";
 
 function App(props) {
     const [taskData, setTaskData] = useState([])
-    const [updateData, setUpdateData] = useState(0)
+    const [updateData, setUpdateData] = useState(false)
 
     useEffect(()=>{
         getTasks((data)=>{
             setTaskData(data)
+        }).then(()=>{
+            console.log(taskData)
+            setUpdateData(false)
         })
     }, [updateData])
-    console.log(taskData)
     return (
         <>
-            <NewTask onNewTask={()=>setUpdateData(state=>state+1)}/>
+            <NewTask onNewTask={()=>setUpdateData(true)}/>
             {
                 taskData.map(task=>{
-                    return <Task key={task.id} title={task.title}
-                                 description={task.description}
-                                 status={task.status} onRemoveTask={null}/>
+                    return <Task key={task.id} id={task.id}
+                                 title={task.title} description={task.description}
+                                 status={task.status} onFinishTask={()=>setUpdateData(true)}
+                                 onRemoveTask={()=>setUpdateData(true)}/>
                 })
             }
         </>

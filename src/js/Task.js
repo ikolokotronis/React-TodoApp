@@ -1,11 +1,27 @@
 import React, {useEffect, useState} from 'react';
+import {removeTask} from "./api/tasks";
 
 function Task(props) {
     const [status, setStatus] = useState()
+    const [showOperationForm, setShowOperationForm] = useState(false)
 
     useEffect(()=>{
         setStatus(props.status)
     }, [])
+
+    function handleShowOperationForm() {
+        setShowOperationForm(state=>!state)
+    }
+
+    function handleRemoveTask() {
+        removeTask(props.id).then(()=>{
+            props.onRemoveTask()
+        })
+    }
+
+    function handleFinish() {
+        console.log('finish clicked')
+    }
 
     return (
         <>
@@ -17,14 +33,14 @@ function Task(props) {
                     </div>
                     <div>
                         {
-                            status && (
+                            status === "open" && (
                                 <>
-                                    <button className={"btn btn-info btn-sm mr-2"}>
+                                    <button onClick={handleShowOperationForm} className={"btn btn-info btn-sm mr-2"}>
                                         Add operation
                                         <i className={"fas fa-plus-circle ml-1"}/>
                                     </button>
 
-                                    <button className={"btn btn-dark btn-sm"}>
+                                    <button onClick={handleFinish} className={"btn btn-dark btn-sm"}>
                                     Finish
                                     <i className={"fas fa-archive ml-1"}/>
                                     </button>
@@ -33,7 +49,7 @@ function Task(props) {
                         }
 
                         {/* visible only when no operations in task */}
-                        <button className={"btn btn-outline-danger btn-sm ml-2"}>
+                        <button onClick={handleRemoveTask} className={"btn btn-outline-danger btn-sm ml-2"}>
                             <i className={"fas fa-trash false"}/>
                         </button>
                     </div>
