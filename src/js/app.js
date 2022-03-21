@@ -3,6 +3,7 @@ import ReactDOM from "react-dom";
 import {getTasks} from "./api/tasks";
 import {getOperations} from "./api/operations";
 import NewTask from "./NewTask";
+import Task from "./Task";
 
 function App(props) {
     const [taskData, setTaskData] = useState([])
@@ -16,7 +17,10 @@ function App(props) {
     }, [updateData])
 
     return (
-        <NewTask onNewTask={()=>setUpdateData(state=>state+1)}/>
+        <>
+            <NewTask onNewTask={()=>setUpdateData(state=>state+1)}/>
+            <Task/>
+        </>
     );
 }
 
