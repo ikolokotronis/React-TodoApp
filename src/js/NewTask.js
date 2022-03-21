@@ -1,8 +1,16 @@
 import React, {useState} from 'react';
+import {addTask} from "./api/tasks";
 
 function NewTask(props) {
-    const [title, setTitle] = useState()
-    const [description, setDescription] = useState()
+    const [title, setTitle] = useState('');
+    const [description, setDescription] = useState('');
+
+    function handleClick(e) {
+        e.preventDefault();
+        addTask(title, description, "open");
+        props.onNewTask()
+    }
+
     return (
         <div className={"card shadow"}>
             <div className={"card-body"}>
@@ -24,7 +32,7 @@ function NewTask(props) {
                                value={description}
                                onChange={(e)=>setDescription(e.target.value)}/>
                     </div>
-                    <button className={"btn btn-info"}>
+                    <button onClick={handleClick} className={"btn btn-info"}>
                         Add task
                         <i className={"fas fa-plus-circle ml-1"}/>
                     </button>
