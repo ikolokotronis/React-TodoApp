@@ -16,6 +16,8 @@ function Task(props) {
     useEffect(()=>{
         getOperations(props.id,(data)=>{
             setOperationData(data)
+        }).then(()=>{
+            props.setUpdate(false)
         })
     }, [props.update])
 
@@ -27,14 +29,14 @@ function Task(props) {
 
     function handleRemoveTask() {
         removeTask(props.id).then(()=>{
-            props.onRemoveTask()
+            props.setUpdate(true)
         })
     }
 
     function handleFinish() {
         setStatus("closed")
         finishTask(props.id,props.title,props.description).then(()=>{
-            props.onFinishTask()
+            props.setUpdate(true)
         })
     }
 
@@ -64,13 +66,16 @@ function Task(props) {
                         }
 
                         {/* visible only when no operations in task */}
-                        <button onClick={handleRemoveTask} className={"btn btn-outline-danger btn-sm ml-2"}>
-                            <i className={"fas fa-trash false"}/>
-                        </button>
+                        {
+                            operationData.length === 0&&
+                            <button onClick={handleRemoveTask} className={"btn btn-outline-danger btn-sm ml-2"}>
+                                <i className={"fas fa-trash false"}/>
+                            </button>
+                        }
                     </div>
                 </div>
 
-                <Operations taskID={props.id}  status={props.status}
+                <Operations setUpdate={props.setUpdate} taskID={props.id}  status={props.status}
                             form={showOperationForm} setForm={null}
                             operations={operationData} setOperation={null}/>
             </section>
