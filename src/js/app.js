@@ -20,13 +20,12 @@ function App(props) {
     }, [updateData])
     return (
         <>
-            <NewTask onNewTask={()=>setUpdateData(true)}/>
+            <NewTask setUpdate={(bool)=>setUpdateData(bool)}/>
             {
                 taskData.map(task=>{
-                    return <Task key={task.id} id={task.id} update={updateData}
+                    return <Task key={task.id} id={task.id} update={updateData} setUpdate={(bool)=>setUpdateData(bool)}
                                  title={task.title} description={task.description}
-                                 status={task.status} onFinishTask={()=>setUpdateData(true)}
-                                 onRemoveTask={()=>setUpdateData(true)}/>
+                                 status={task.status}/>
                 })
             }
         </>

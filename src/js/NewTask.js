@@ -8,7 +8,7 @@ function NewTask(props) {
     function handleClick(e) {
         e.preventDefault();
         addTask(title, description, "open").then(()=>{
-            props.onNewTask()
+            props.setUpdate(true)
         })
     }
 
