@@ -14,7 +14,9 @@ function Operations(props) {
         e.preventDefault()
         setDescriptionText('')
         setShowForm(false)
-        addOperation(props.taskID, descriptionText, 50).then(resp=>console.log(resp))
+        addOperation(props.taskID, descriptionText, 50)
+        props.setUpdate(true)
+
     }
 
     return (
@@ -37,7 +39,7 @@ function Operations(props) {
             <ul className={"list-group list-group-flush"}>
                 {
                     props.operations.map(operation=>{
-                        return <Operation key={operation.id} id={operation.id}
+                        return <Operation key={operation.id} id={operation.id} setUpdate={props.setUpdate}
                                           description={operation.description} timeSpent={operation.timeSpent}
                                           status={operation.task.status}/>
                     })
