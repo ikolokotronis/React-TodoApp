@@ -65,7 +65,6 @@ function Task(props) {
                             )
                         }
 
-                        {/* visible only when no operations in task */}
                         {
                             operationData.length === 0&&
                             <button onClick={handleRemoveTask} className={"btn btn-outline-danger btn-sm ml-2"}>
@@ -75,7 +74,7 @@ function Task(props) {
                     </div>
                 </div>
 
-                <Operations setUpdate={props.setUpdate} taskID={props.id}  status={props.status}
+                <Operations setUpdate={props.setUpdate} taskID={props.id} status={props.status}
                             form={showOperationForm} setForm={null}
                             operations={operationData} setOperation={null}/>
             </section>

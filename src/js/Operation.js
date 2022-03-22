@@ -21,15 +21,18 @@ function Operation(props) {
         setShowForm(true)
         setShowButtons(false)
         addTimeToOperation(props.id, props.description, parseInt(inputTimeSpent) + parseInt(props.timeSpent))
-        props.setUpdate(true)
+            .then(()=>{
+                props.setUpdate(true)
+            })
     }
 
     function handleDeleteOperation(e) {
         e.preventDefault()
         setShowForm(true)
         setShowButtons(false)
-        deleteOperation(props.id)
-        props.setUpdate(true)
+        deleteOperation(props.id).then(()=>{
+            props.setUpdate(true)
+        })
     }
 
     return (
@@ -38,7 +41,7 @@ function Operation(props) {
                 <div>
                     {props.description}
                     <span className="badge badge-success badge-pill ml-2">
-                        {props.timeSpent > 0 && props.timeSpent}
+                        {props.timeSpent > 0 && props.timeSpent+"m"}
                     </span>
                 </div>
 

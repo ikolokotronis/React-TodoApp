@@ -14,8 +14,9 @@ function Operations(props) {
         e.preventDefault()
         setDescriptionText('')
         setShowForm(false)
-        addOperation(props.taskID, descriptionText, 50)
-        props.setUpdate(true)
+        addOperation(props.taskID, descriptionText, 0).then(()=>{
+            props.setUpdate(true)
+        })
 
     }
 

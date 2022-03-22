@@ -1,7 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import ReactDOM from "react-dom";
 import {getTasks} from "./api/tasks";
-import {getOperations} from "./api/operations";
 import NewTask from "./NewTask";
 import Task from "./Task";
 
