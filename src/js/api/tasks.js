@@ -48,7 +48,7 @@ export const addTask = async (title, description, status) => {
     } catch (err) {
         console.log(err)
     }
-}
+};
 
 export const removeTask = async (id) => {
     try {
@@ -68,7 +68,7 @@ export const removeTask = async (id) => {
     } catch (err) {
         console.log(err)
     }
-}
+};
 
 export const finishTask = async (id, title, description) => {
     try {
@@ -92,4 +92,4 @@ export const finishTask = async (id, title, description) => {
     } catch (err) {
         console.log(err)
     }
-}
+};

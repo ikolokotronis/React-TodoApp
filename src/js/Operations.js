@@ -3,20 +3,20 @@ import {addOperation} from "./api/operations";
 import Operation from "./Operation";
 
 function Operations(props) {
-    const [showForm, setShowForm] = useState(false)
-    const [descriptionText, setDescriptionText] = useState('')
+    const [showForm, setShowForm] = useState(false);
+    const [descriptionText, setDescriptionText] = useState('');
 
     useEffect(()=>{
-        setShowForm(props.form)
-    }, [props.form])
+        setShowForm(props.form);
+    }, [props.form]);
 
     function handleClick(e) {
-        e.preventDefault()
-        setDescriptionText('')
-        setShowForm(false)
+        e.preventDefault();
+        setDescriptionText('');
+        setShowForm(false);
         addOperation(props.taskID, descriptionText, 0).then(()=>{
-            props.setUpdate(true)
-        })
+            props.setUpdate(true);
+        });
 
     }
 

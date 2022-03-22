@@ -5,18 +5,18 @@ import NewTask from "./NewTask";
 import Task from "./Task";
 
 function App(props) {
-    const [taskData, setTaskData] = useState([])
-    const [updateData, setUpdateData] = useState(false)
+    const [taskData, setTaskData] = useState([]);
+    const [updateData, setUpdateData] = useState(false);
     useEffect(()=>{
 
         getTasks((data)=>{
-            setTaskData(data)
+            setTaskData(data);
         }).then(()=>{
-            setUpdateData(false)
+            setUpdateData(false);
         })
 
 
-    }, [updateData])
+    }, [updateData]);
     return (
         <>
             <NewTask setUpdate={(bool)=>setUpdateData(bool)}/>

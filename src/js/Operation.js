@@ -2,36 +2,36 @@ import React, {useState} from 'react';
 import {addTimeToOperation, deleteOperation} from "./api/operations";
 
 function Operation(props) {
-    const [inputTimeSpent, setInputTimeSpent] = useState('')
-    const [showButtons, setShowButtons] = useState(false)
-    const [showForm, setShowForm] = useState(true)
+    const [inputTimeSpent, setInputTimeSpent] = useState('');
+    const [showButtons, setShowButtons] = useState(false);
+    const [showForm, setShowForm] = useState(true);
     function handleShowForm() {
-        setShowForm(false)
-        setShowButtons(true)
+        setShowForm(false);
+        setShowButtons(true);
     }
 
     function handleHideForm(e) {
-        e.preventDefault()
-        setShowForm(true)
-        setShowButtons(false)
+        e.preventDefault();
+        setShowForm(true);
+        setShowButtons(false);
     }
 
     function handleAddTime(e) {
-        e.preventDefault()
-        setShowForm(true)
-        setShowButtons(false)
+        e.preventDefault();
+        setShowForm(true);
+        setShowButtons(false);
         addTimeToOperation(props.id, props.description, parseInt(inputTimeSpent) + parseInt(props.timeSpent))
             .then(()=>{
-                props.setUpdate(true)
+                props.setUpdate(true);
             })
     }
 
     function handleDeleteOperation(e) {
-        e.preventDefault()
-        setShowForm(true)
-        setShowButtons(false)
+        e.preventDefault();
+        setShowForm(true);
+        setShowButtons(false);
         deleteOperation(props.id).then(()=>{
-            props.setUpdate(true)
+            props.setUpdate(true);
         })
     }
 

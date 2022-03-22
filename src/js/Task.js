@@ -5,39 +5,39 @@ import Operations from "./Operations";
 import {getOperations} from "./api/operations";
 
 function Task(props) {
-    const [status, setStatus] = useState('')
-    const [showOperationForm, setShowOperationForm] = useState(false)
-    const [operationData, setOperationData] = useState([])
+    const [status, setStatus] = useState('');
+    const [showOperationForm, setShowOperationForm] = useState(false);
+    const [operationData, setOperationData] = useState([]);
 
     useEffect(()=>{
-        setStatus(props.status)
-    }, [])
+        setStatus(props.status);
+    }, []);
 
     useEffect(()=>{
         getOperations(props.id,(data)=>{
-            setOperationData(data)
+            setOperationData(data);
         }).then(()=>{
-            props.setUpdate(false)
-        })
-    }, [props.update])
+            props.setUpdate(false);
+        });
+    }, [props.update]);
 
-    console.log(operationData)
+    console.log(operationData);
 
     function handleShowOperationForm() {
-        setShowOperationForm(state=>!state)
+        setShowOperationForm(state=>!state);
     }
 
     function handleRemoveTask() {
         removeTask(props.id).then(()=>{
-            props.setUpdate(true)
-        })
+            props.setUpdate(true);
+        });
     }
 
     function handleFinish() {
         setStatus("closed")
         finishTask(props.id,props.title,props.description).then(()=>{
-            props.setUpdate(true)
-        })
+            props.setUpdate(true);
+        });
     }
 
     return (
