@@ -38,6 +38,13 @@ export const addTask = async (title, description, status) => {
                 status: status
             })
         })
+
+        const data = await response.json();
+
+        if (data.error) {
+            throw new Error("Error!");
+        }
+
     } catch (err) {
         console.log(err)
     }
@@ -51,6 +58,13 @@ export const removeTask = async (id) => {
                 Authorization: API_KEY,
             }
         })
+
+        const data = await response.json();
+
+        if (data.error) {
+            throw new Error("Error!");
+        }
+
     } catch (err) {
         console.log(err)
     }
@@ -70,6 +84,11 @@ export const finishTask = async (id, title, description) => {
                 status: "closed"
             })
         })
+        const data = await response.json();
+
+        if (data.error) {
+            throw new Error("Error!");
+        }
     } catch (err) {
         console.log(err)
     }

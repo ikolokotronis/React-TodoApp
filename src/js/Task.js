@@ -1,14 +1,25 @@
 import React, {useEffect, useState} from 'react';
 import {removeTask} from "./api/tasks";
 import {finishTask} from "./api/tasks";
+import Operations from "./Operations";
+import {getOperations} from "./api/operations";
 
 function Task(props) {
     const [status, setStatus] = useState('')
     const [showOperationForm, setShowOperationForm] = useState(false)
+    const [operationData, setOperationData] = useState([])
 
     useEffect(()=>{
         setStatus(props.status)
     }, [])
+
+    useEffect(()=>{
+        getOperations(props.id,(data)=>{
+            setOperationData(data)
+        })
+    }, [props.update])
+
+    console.log(operationData)
 
     function handleShowOperationForm() {
         setShowOperationForm(state=>!state)
@@ -59,7 +70,9 @@ function Task(props) {
                     </div>
                 </div>
 
-                {/* operations component */}
+                <Operations taskID={props.id}  status={props.status}
+                            form={showOperationForm} setForm={null}
+                            operations={operationData} setOperation={null}/>
             </section>
         </>
     );
