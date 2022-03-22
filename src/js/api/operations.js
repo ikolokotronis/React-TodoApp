@@ -50,3 +50,51 @@ export const addOperation = async (id, description, timeSpent) => {
         console.log(err);
     }
 };
+
+export const addTimeToOperation = async (id, description, timeSpent) => {
+    try {
+        const response = await fetch(`${API_URL}/operations/${id}`, {
+            headers: {
+                Authorization: API_KEY,
+                'Content-Type': 'application/json'
+            },
+            method: "PUT",
+            body: JSON.stringify({
+                description: description,
+                timeSpent: timeSpent
+            })
+        });
+
+        const data = await response.json();
+        console.log(data)
+
+        if (data.error) {
+            throw new Error("Error!");
+        }
+
+    } catch (err) {
+        console.log(err);
+    }
+};
+
+
+export const deleteOperation = async (id) => {
+    try {
+        const response = await fetch(`${API_URL}/operations/${id}`, {
+            headers: {
+                Authorization: API_KEY
+            },
+            method: "DELETE"
+        });
+
+        const data = await response.json();
+        console.log(data)
+
+        if (data.error) {
+            throw new Error("Error!");
+        }
+
+    } catch (err) {
+        console.log(err);
+    }
+};
