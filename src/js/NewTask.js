@@ -10,6 +10,8 @@ function NewTask(props) {
         addTask(title, description, "open").then(()=>{
             props.setUpdate(true);
         })
+        setTitle('')
+        setDescription('')
     }
 
     return (
