@@ -2,7 +2,8 @@
 .idea/
 
 #node modules
-src/node_modules/
+/src/node_modules/
 
 #package-lock
-src/package-lock.json
+/src/package-lock.json
+
