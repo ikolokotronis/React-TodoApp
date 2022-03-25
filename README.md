@@ -46,7 +46,7 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-This project implements the idea of being in track with our daily tasks, by providing a easy to manage TODO list with a time tracking functionality.
+This project helps with being in track with our daily tasks, by providing a easy to manage TODO list with a time tracking functionality.
 
 
 ### Built With
