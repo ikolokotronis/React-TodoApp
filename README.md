@@ -120,6 +120,6 @@ Distributed under the MIT License. See `LICENSE.txt` for more information.
 ## Contact
 Ioannis Kolokotronis - ioanniskolokotronis1@gmail.com
 
-Project Link: [https://github.com/ikolokotronis/WeatherApp](https://github.com/ikolokotronis/WeatherApp)
+Project Link: [https://github.com/ikolokotronis/timetracker-todo-app](https://github.com/ikolokotronis/timetracker-todo-app)
 
 <p align="right">(<a href="#top">back to top</a>)</p>
