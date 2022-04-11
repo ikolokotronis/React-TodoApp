@@ -1,9 +1,6 @@
-#idea files
 .idea/
 
-#node modules
-/src/node_modules/
+node_modules/
 
-#package-lock
-/src/package-lock.json
+package-lock.json
 
