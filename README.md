@@ -37,8 +37,7 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-This project helps with being in track with our daily tasks, by providing a easy to manage TODO list with a time tracking functionality.
-
+App helps with being in track with everyday tasks, by providing a easy to manage todo list with time tracking functionality
 
 ### Built With
 
