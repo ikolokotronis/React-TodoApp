@@ -3,16 +3,8 @@
 <h3 align="center">ToDo App with time tracking</h3>
 
   <p align="center">
-    A ToDo app with time tracking made using React
-    <br />
-    <a href="https://github.com/ikolokotronis/timetracker-todo-app"><strong>Explore the docs »</strong></a>
-    <br />
     <br />
     <a href="#demo">View Demo</a>
-    ·
-    <a href="https://github.com/ikolokotronis/timetracker-todo-app/issues">Report Bug</a>
-    ·
-    <a href="https://github.com/ikolokotronis/timetracker-todo-app/issues">Request Feature</a>
   </p>
 </div>
 
