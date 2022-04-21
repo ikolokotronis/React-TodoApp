@@ -1,6 +1,6 @@
 <div id="top"></div>
 
-<h3 align="center">ToDo App with time tracking</h3>
+<h3 align="center">ToDo App with a time tracker </h3>
 
   <p align="center">
     <br />
@@ -37,7 +37,7 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-App helps with being in track with everyday tasks, by providing a easy to manage todo list with time tracking functionality
+Easy to manage todo list with with a time tracker 
 
 ### Built With
 
