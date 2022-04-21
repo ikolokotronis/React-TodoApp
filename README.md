@@ -37,7 +37,7 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-Easy to manage todo list with with a time tracker 
+Easy to manage todo list with a time tracker 
 
 ### Built With
 
