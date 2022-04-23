@@ -42,6 +42,7 @@ Easy to manage todo list with a time tracker
 ### Built With
 
 * [React.js](https://reactjs.org/)
+* [Bootstrap](https://getbootstrap.com/)
 
 
 ## Demo
